@@ -9,11 +9,12 @@ Brick::Brick()
 
 Brick::Brick(float posX, float posY, int durability, const std::string& type)
     : hit_points(durability), max_hit_points(durability), brick_type(type) {
-    x = posX;
-    y = posY;
+    x = pos_x;
+    y = pos_y;
     weight = 50.0f;
     height = 20.0f;
-    score_value = durability * 10;
+    const int score_multiplier = 10; //множитель очков
+    score_value = durability * score_multiplier;
     contains_bonus = (durability == 1);
     std::cout << "Кирпич создан с параметрами: тип=" << type << ", прочность=" << durability << std::endl;
 }
@@ -34,10 +35,11 @@ void Brick::GetBoundingBox() {
     std::cout << "Получение границ кирпича" << std::endl;
 }
 
+const int max_hit_points = 3; //максимальное кол-во попаданий по кирпичу
 void Brick::OnHit() {
-    hit_points--;
-    std::cout << "Попадание по кирпичу. Осталось прочности: " << hit_points << std::endl;
-    if (hit_points <= 0) {
+    hit_points++;
+    std::cout << "Попадание по кирпичу. Накоплено прочности: " << hit_points << std::endl;
+    if (hit_points >= max_hit_points) {
         flag_active = false;
         std::cout << "Кирпич разрушен!" << std::endl;
     }

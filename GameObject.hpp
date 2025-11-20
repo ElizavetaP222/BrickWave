@@ -1,5 +1,4 @@
-#ifndef GAMEOBJECT_HPP
-#define GAMEOBJECT_HPP
+#pragma once
 
 class GameObject {
 protected:
@@ -21,8 +20,8 @@ public:
     // Геттеры и сеттеры
     float GetX() const { return x; }
     float GetY() const { return y; }
-    void SetX(float newX) { x = newX; }
-    void SetY(float newY) { y = newY; }
+    void SetX(float new_x) { x = new_x; }
+    void SetY(float new_y) { y = new_y; }
     bool IsActive() const { return flag_active; }
     void SetActive(bool active) { flag_active = active; }
 };

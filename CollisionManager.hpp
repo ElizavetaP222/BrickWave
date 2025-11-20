@@ -1,5 +1,4 @@
-#ifndef COLLISIONMANAGER_HPP
-#define COLLISIONMANAGER_HPP
+#pragma once
 
 class CollisionManager {
 private:

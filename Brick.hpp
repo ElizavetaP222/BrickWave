@@ -1,5 +1,4 @@
-#ifndef BRICK_HPP
-#define BRICK_HPP
+#pragma once
 
 #include "GameObject.hpp"
 #include <string>
@@ -14,7 +13,7 @@ private:
 
 public:
     Brick();
-    Brick(float posX, float posY, int durability, const std::string& type);
+    Brick(float pos_x, float pos_y, int durability, const std::string& type);
     ~Brick();
 
     void Draw() override;

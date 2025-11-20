@@ -18,8 +18,9 @@ GameState::~GameState() {
 }
 
 void GameState::Load() {
+    const int bricks_per_level = 10; //значение для вычисления кол-ва кирпичей для уровней
     std::cout << "Загрузка уровня " << level_number << std::endl;
-    bricks_remaining = level_number * 10;
+    bricks_remaining = level_number * bricks_per_level;
     std::cout << "Кирпичей для разрушения: " << bricks_remaining << std::endl;
 }
 

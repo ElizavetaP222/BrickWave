@@ -1,20 +1,27 @@
 #include "Bonus.hpp"
 #include <iostream>
 
+// Вынесение магических констант
+const float default_fall_speed = 2.0f; //скорость падения бонуса
+const float bonus_weight = 20.0f; //ширина бонуса
+const float bonus_height = 20.0f; //высота 
+const std::string default_type = "увеличение"; //тип бонуса по умолчанию
+const std::string default_texture = "bonus_texture"; //текстура бонуса по умолчанию
+
 Bonus::Bonus()
-    : fall_speed(2.0f) {
-    type = "увеличение";
-    texture = "bonus_texture";
+    : fall_speed(default_fall_speed) {
+    type = default_type;
+    texture = default_texture;
     std::cout << "Бонус создан конструктором по умолчанию" << std::endl;
 }
 
 Bonus::Bonus(float posX, float posY, const std::string& bonusType)
-    : type(bonusType), fall_speed(2.0f) {
+    : type(bonusType), fall_speed(default_fall_speed) {
     x = posX;
     y = posY;
-    weight = 20.0f;
-    height = 20.0f;
-    texture = "bonus_texture_" + bonusType;
+    weight = bonus_weight;
+    height = bonus_height;
+    texture = default_texture + "_" + bonusType;
     std::cout << "Бонус создан с параметрами: тип=" << bonusType << std::endl;
 }
 

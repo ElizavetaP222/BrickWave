@@ -1,26 +1,27 @@
-#ifndef PADDLE_HPP
-#define PADDLE_HPP
+#pragma once
 
-#include "GameObject.hpp"
-
-class Paddle : public GameObject {
+class Paddle {
 private:
-    float speed;
-    int move_direction;
-    float base_width;
+    static const float default_weight;
+    static const float default_height;
 
 public:
     Paddle();
-    Paddle(float startX, float startY, float paddleSpeed);
+    Paddle(float start_x, float start_y, float paddle_speed);
     ~Paddle();
 
-    void Draw() override;
-    void Update(float deltaTime) override;
-    void GetBoundingBox() override;
-
+    void Draw();
+    void Update(float delta_time);
+    void GetBoundingBox();
     void HandleInput();
     void ApplyBonus();
     void ResetSize();
-};
 
-#endif
+private:
+    float x, y;
+    float weight;
+    float height;
+    float speed;
+    int move_direction;
+    float base_width;
+};

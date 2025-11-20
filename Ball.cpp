@@ -1,19 +1,28 @@
 #include "Ball.hpp"
 #include <iostream>
 
+// ¬ынесение магических констант
+const float default_vector_x = 0.0f;
+const float default_vector_y = 0.0f;
+const float default_speed = 0.0f;
+const bool default_stuck_flag = false;
+const float ball_radius = 10.0f;
+const float initial_vector_x = 1.0f;
+const float initial_vector_y = -1.0f;
+
 Ball::Ball()
-    : vector_x(0.0f), vector_y(0.0f), base_speed(0.0f),
-    flag_stuck_to_paddle(false) {
+    : vector_x(default_vector_x), vector_y(default_vector_y), base_speed(default_speed),
+    flag_stuck_to_paddle(default_stuck_flag) {
     std::cout << "ћ€ч создан конструктором по умолчанию" << std::endl;
 }
 
-Ball::Ball(float startX, float startY, float speed)
-    : base_speed(speed), flag_stuck_to_paddle(false) {
-    x = startX;
-    y = startY;
-    radius = 10.0f;
-    vector_x = 1.0f;
-    vector_y = -1.0f;
+Ball::Ball(float start_x, float start_y, float speed)
+    : base_speed(speed), flag_stuck_to_paddle(default_stuck_flag) {
+    x = start_x;
+    y = start_y;
+    radius = ball_radius;
+    vector_x = initial_vector_x;
+    vector_y = initial_vector_y;
     std::cout << "ћ€ч создан с параметрами: x=" << x << ", y=" << y << std::endl;
 }
 

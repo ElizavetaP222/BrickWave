@@ -1,8 +1,17 @@
 #include "CollisionManager.hpp"
 #include <iostream>
 
+// Вынесение магических констант
+const int initial_lives = 3; //начальное кол-во жизней
+const int initial_score = 0; //начальный счет
+const int initial_level = 1; //начальный уровень
+const int initial_high_score = 0; //начальный рекорд
+const bool initial_game_over_flag = false; //начальное состояние игры
+const int zero_lives_threshold = 0; //предел окончания игры 
+
 CollisionManager::CollisionManager()
-    : score(0), lives(3), current_level(1), flag_game_over(false), high_score(0) {
+    : score(initial_score), lives(initial_lives), current_level(initial_level),
+    flag_game_over(initial_game_over_flag), high_score(initial_high_score) {
     std::cout << "Менеджер столкновений создан" << std::endl;
 }
 
@@ -22,7 +31,7 @@ void CollisionManager::AddPoints(int points) {
 void CollisionManager::LoseLife() {
     lives--;
     std::cout << "Потеряна жизнь. Осталось жизней: " << lives << std::endl;
-    if (lives <= 0) {
+    if (lives <= zero_lives_threshold) {
         flag_game_over = true;
         std::cout << "Игра окончена!" << std::endl;
     }
@@ -34,10 +43,10 @@ void CollisionManager::GainLife() {
 }
 
 void CollisionManager::Reset() {
-    score = 0;
-    lives = 3;
-    current_level = 1;
-    flag_game_over = false;
+    score = initial_score;
+    lives = initial_lives;
+    current_level = initial_level;
+    flag_game_over = initial_game_over_flag;
     std::cout << "Состояние игры сброшено" << std::endl;
 }
 

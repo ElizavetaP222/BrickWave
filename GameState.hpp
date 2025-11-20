@@ -1,5 +1,4 @@
-#ifndef GAMESTATE_HPP
-#define GAMESTATE_HPP
+#pragma once
 
 #include <vector>
 #include "Brick.hpp"

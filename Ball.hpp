@@ -1,5 +1,4 @@
-#ifndef BALL_HPP
-#define BALL_HPP
+#pragma once
 
 #include "GameObject.hpp"
 
@@ -12,11 +11,11 @@ private:
 
 public:
     Ball();
-    Ball(float startX, float startY, float speed);
+    Ball(float start_x, float start_y, float speed);
     ~Ball();
 
     void Draw() override;
-    void Update(float deltaTime) override;
+    void Update(float deltatime) override;
     void GetBoundingBox() override;
 
     void Move();

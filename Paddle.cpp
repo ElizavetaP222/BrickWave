@@ -1,18 +1,22 @@
 #include "Paddle.hpp"
 #include <iostream>
 
+// Вынесение магических констант
+const float Paddle::DEFAULT_WEIGHT = 100.0f;
+const float Paddle::DEFAULT_HEIGHT = 20.0f;
+
 Paddle::Paddle()
     : speed(0.0f), move_direction(0), base_width(0.0f) {
     std::cout << "Ракетка создана конструктором по умолчанию" << std::endl;
 }
 
-Paddle::Paddle(float startX, float startY, float paddleSpeed)
+Paddle::Paddle(float start_x, float start_y, float paddle_speed)
     : speed(paddleSpeed), move_direction(0) {
-    x = startX;
-    y = startY;
-    weight = 100.0f;
-    height = 20.0f;
-    base_width = weight;
+    x = start_x;
+    y = start_y;
+    weight = default_weight;
+    height = default_height;
+    base_width = default_weight;
     std::cout << "Ракетка создана с параметрами: x=" << x << ", y=" << y << std::endl;
 }
 
